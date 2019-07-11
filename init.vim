@@ -50,5 +50,10 @@ set t_vb        =                   " Disable screen flash
 " Keymaps
 "=======================================
 " Reload vimrc
-nnoremap <leader>rc :source ~/.vimrc<CR>
+nnoremap <leader>R :source ~/.vimrc<CR>
+" Open vimrc
+nnoremap <leader>E :e ~/myvimrc/init.vim<CR>
+
+" Replace windows path to linux style
+nnoremap <leader>rp :%s/\\\+/\//g<CR>
 
