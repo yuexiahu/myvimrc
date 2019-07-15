@@ -17,6 +17,7 @@ set backspace   =indent,eol,start   " Make backspace work as you would expect.
 set hidden                          " Switch between buffers without having to save first.
 set laststatus  =2                  " Always show statusline.
 set display     =lastline           " Show as much as possible of the last line.
+set scrolloff   =5
 
 set showmode                        " Show current mode in command-line.
 set showcmd                         " Show already typed keys when more are expected.
@@ -43,8 +44,23 @@ else
   let &listchars = 'tab:> ,extends:>,precedes:<,nbsp:.,trail:.'
 endif
 
-color peachpuff                     " Color scheme
+color elflord                       " Color scheme
 set t_vb        =                   " Disable screen flash
+
+
+"=======================================
+" Plugins
+"=======================================
+" Specify a directory for plugins
+" - For Neovim: ~/.local/share/nvim/plugged
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Initialize plugin system
+call plug#end()
+
 
 "=======================================
 " Keymaps
