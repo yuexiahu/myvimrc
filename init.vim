@@ -66,7 +66,7 @@ call plug#end()
 " Keymaps
 "=======================================
 " Reload vimrc
-nnoremap <leader>R :source ~/.vimrc<CR>
+nnoremap <leader>R :source ~/myvimrc/init.vim<CR>
 " Open vimrc
 nnoremap <leader>E :e ~/myvimrc/init.vim<CR>
 
