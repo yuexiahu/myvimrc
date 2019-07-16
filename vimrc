@@ -1,1 +1,1 @@
-source init.vim
+source $PWD/init.vim
