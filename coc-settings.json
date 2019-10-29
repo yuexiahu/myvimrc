@@ -1,5 +1,6 @@
 {
     "suggest.autoTrigger": "always",
+    "coc.preferences.currentFunctionSymbolAutoUpdate": true,
 
     //ccls
     "languageserver": {
@@ -13,5 +14,6 @@
                 }
             }
         }
-    }
+    },
+    "coc.preferences.extensionUpdateCheck": "daily"
 }
