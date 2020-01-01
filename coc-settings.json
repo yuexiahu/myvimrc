@@ -1,6 +1,11 @@
 {
     "suggest.autoTrigger": "always",
     "coc.preferences.currentFunctionSymbolAutoUpdate": true,
+    "coc.preferences.extensionUpdateCheck": "daily",
+    "coc.preferences.formatOnSaveFiletypes": ["go"],
+    "coc.source.omni.enable": true,
+    "coc.source.omni.filetypes": ["cmake"],
+    "diagnostic.virtualText": true,
 
     //ccls
     "languageserver": {
@@ -11,9 +16,13 @@
             "initializationOptions": {
                 "cache": {
                     "directory": "/tmp/ccls"
-                }
+                },
+                "compilationDatabaseDirectory": "build/"
             }
         }
     },
-    "coc.preferences.extensionUpdateCheck": "daily"
+
+    "go.goplsOptions": {
+        "completeUnimported": true
+    }
 }
