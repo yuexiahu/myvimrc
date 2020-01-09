@@ -66,11 +66,11 @@ let g:netrw_winsize     =25         " Window width 25%
 "=======================================
 let mapleader=" "
 " Reload vimrc
-nnoremap <leader>R :source ~/myvimrc/init.vim<CR>
+nnoremap <leader>R :source ~/.vim/init.vim<CR>
 " Open vimrc
-nnoremap <leader>E :e ~/myvimrc/init.vim<CR>
-nnoremap <leader>Eb :e ~/myvimrc/init_basic.vim<CR>
-nnoremap <leader>Ep :e ~/myvimrc/init_plugin.vim<CR>
+nnoremap <leader>E :e ~/.vim/init.vim<CR>
+nnoremap <leader>Eb :e ~/.vim/init_basic.vim<CR>
+nnoremap <leader>Ep :e ~/.vim/init_plugin.vim<CR>
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
 " Fast set filetype
@@ -81,3 +81,26 @@ nnoremap <leader>rp :%s/\\\+/\//g<CR>
 noremap <leader>y "+y
 noremap <leader>p "+p
 
+"=======================================
+" encoding
+"=======================================
+if has('multi_byte')
+	" vim inner encoding
+	set encoding=utf-8
+  language messages zh_CN.utf-8
+
+	" file encoding
+	set fileencoding=utf-8
+
+	" guest encoding
+	set fileencodings=ucs-bom,utf-8,gbk,gb18030,big5,euc-jp,latin1
+endif
+
+"=======================================
+" gui
+"=======================================
+if has('gui_running')
+  source $VIMRUNTIME/delmenu.vim
+  source $VIMRUNTIME/menu.vim
+  set guifont         =Consolas:h12
+endif

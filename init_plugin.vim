@@ -28,7 +28,6 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'yuexiahu/a.vim'
 
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
-Plug 'liuchengxu/vista.vim'
 Plug 'rlue/vim-barbaric' " smart im switcher
 
 Plug 'rhysd/vim-clang-format'
@@ -191,6 +190,7 @@ endif
 
 "color onedark
 color monokai
+set background=dark
 
 "=======================================
 " Plug 'vhdirk/vim-cmake'
@@ -215,36 +215,19 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "*",
     \ "Staged"    : "+",
     \ "Untracked" : " ",
-    \ "Renamed"   : ">",
-    \ "Unmerged"  : "═",
+    \ "Renamed"   : "@",
+    \ "Unmerged"  : "=",
     \ "Deleted"   : "-",
-    \ "Dirty"     : "✖",
-    \ "Clean"     : "✔︎",
-    \ 'Ignored'   : '~',
+    \ "Dirty"     : "!",
+    \ "Clean"     : "%",
     \ "Unknown"   : "?"
-    \ }
-
-"=======================================
-" Plug 'liuchengxu/vista.vim'
-"=======================================
-let g:vista_default_executive="ctags"
-let g:vista_executive_for = {
-            \ 'cpp': 'coc',
-            \ 'c': 'coc',
-            \ 'go': 'coc',
-            \ 'markdown': 'toc',
-            \}
-let g:vista_stay_on_open=1
-
-" Close vim if the only window left open is a Vista
-autocmd bufenter * if (winnr("$") == 1 && vista#sidebar#IsVisible()) | q | endif
-
+    \}
 
 "=======================================
 " Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 "=======================================
-let g:Lf_StlSeparator = { 'left': '', 'right': '' }
-let g:Lf_WindowPosition='popup'
+let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
+"let g:Lf_WindowPosition='popup'
 let g:Lf_PreviewInPopup=1
 
 "=======================================
