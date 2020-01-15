@@ -29,6 +29,7 @@ Plug 'yuexiahu/a.vim'
 
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'rlue/vim-barbaric' " smart im switcher
+Plug 'skywind3000/vim-terminal-help'
 
 Plug 'rhysd/vim-clang-format'
 Plug 'vim-scripts/DoxygenToolkit.vim'
@@ -210,7 +211,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " Open and close NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
-"let g:NERDTreeWinPos = "right"
+let g:NERDTreeWinPos = "right"
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "*",
     \ "Staged"    : "+",
