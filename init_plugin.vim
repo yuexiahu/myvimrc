@@ -232,8 +232,8 @@ let g:NERDTreeIndicatorMapCustom = {
 "let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
 "let g:Lf_WindowPosition='popup'
 "let g:Lf_PreviewInPopup=1
-nmap <silent> <leader>f :Clap buffers<CR>
-nmap <silent> <leader>b :Clap files<CR>
+nmap <silent> <leader>f :Clap files<CR>
+nmap <silent> <leader>b :Clap buffers<CR>
 
 "=======================================
 "Plug 'skywind3000/vim-terminal-help'
