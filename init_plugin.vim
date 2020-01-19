@@ -27,7 +27,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'yuexiahu/a.vim'
 
-Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+"Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+Plug 'liuchengxu/vim-clap'
 Plug 'rlue/vim-barbaric' " smart im switcher
 Plug 'skywind3000/vim-terminal-help'
 
@@ -226,10 +227,13 @@ let g:NERDTreeIndicatorMapCustom = {
 
 "=======================================
 " Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+" Plug 'liuchengxu/vim-clap'
 "=======================================
-let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
+"let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
 "let g:Lf_WindowPosition='popup'
-let g:Lf_PreviewInPopup=1
+"let g:Lf_PreviewInPopup=1
+nmap <silent> <leader>f :Clap buffers<CR>
+nmap <silent> <leader>b :Clap files<CR>
 
 "=======================================
 "Plug 'skywind3000/vim-terminal-help'
