@@ -234,6 +234,7 @@ let g:NERDTreeIndicatorMapCustom = {
 "let g:Lf_PreviewInPopup=1
 nmap <silent> <leader>f :Clap files<CR>
 nmap <silent> <leader>b :Clap buffers<CR>
+nmap <silent> <leader>g :Clap grep<CR>
 
 "=======================================
 "Plug 'skywind3000/vim-terminal-help'
