@@ -246,20 +246,9 @@ nmap <silent> <F4> :A<CR>
 imap <silent> <F4> <Esc>:A<CR>
 nmap <silent> <F2> <Plug>(coc-definition)
 
-" FZF
-nnoremap <C-p> :FZF<CR>
-
-" Vista
-nnoremap <leader>vv :Vista!!<CR>
-nnoremap <leader>vc :Vista!<CR>
-nnoremap <leader>vf :Vista finder coc<CR>
-
 " easymotion
 nmap <leader>s <Plug>(easymotion-s2)
 nmap <leader>t <Plug>(easymotion-t2)
-
-" Search project
-"cmap ff CocSearch -e 
 
 " doxygen
 nmap <leader>d :Dox<CR>
