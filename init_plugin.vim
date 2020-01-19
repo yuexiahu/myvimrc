@@ -232,6 +232,13 @@ let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
 let g:Lf_PreviewInPopup=1
 
 "=======================================
+"Plug 'skywind3000/vim-terminal-help'
+"=======================================
+if has('win32')
+    let g:terminal_shell = "powershell"
+endif
+
+"=======================================
 " Keymaps
 "=======================================
 " qt creator keymap
