@@ -7,7 +7,9 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}     " language-server client
 Plug 'vim-airline/vim-airline'
