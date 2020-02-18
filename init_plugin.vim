@@ -29,8 +29,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'yuexiahu/a.vim'
 
-"Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
-Plug 'liuchengxu/vim-clap'
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+"Plug 'liuchengxu/vim-clap'
 Plug 'rlue/vim-barbaric' " smart im switcher
 Plug 'skywind3000/vim-terminal-help'
 
@@ -194,6 +194,9 @@ endif
 
 "color onedark
 color monokai
+let g:monokai_term_italic = 1
+let g:monokai_gui_italic = 1
+
 set background=dark
 
 "=======================================
@@ -231,12 +234,13 @@ let g:NERDTreeIndicatorMapCustom = {
 " Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 " Plug 'liuchengxu/vim-clap'
 "=======================================
-"let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
-"let g:Lf_WindowPosition='popup'
-"let g:Lf_PreviewInPopup=1
-nmap <silent> <leader>f :Clap files<CR>
-nmap <silent> <leader>b :Clap buffers<CR>
-nmap <silent> <leader>g :Clap grep<CR>
+let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
+let g:Lf_WindowPosition='popup'
+let g:Lf_PreviewInPopup=1
+nmap <silent> <leader>f :Leaderf file<CR>
+nmap <silent> <leader>b :Leaderf buffer<CR>
+nmap <silent> <leader>g :Leaderf rg<CR>
+nmap <silent> <leader>m :Leaderf mru<CR>
 
 "=======================================
 "Plug 'skywind3000/vim-terminal-help'

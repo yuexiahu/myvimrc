@@ -86,7 +86,7 @@ noremap <leader>P "+P
 if has('multi_byte')
 	" vim inner encoding
 	set encoding=utf-8
-  language messages zh_CN.utf-8
+    "language messages zh_CN.utf-8
 
 	" file encoding
 	set fileencoding=utf-8
@@ -101,5 +101,5 @@ endif
 if has('gui_running')
   source $VIMRUNTIME/delmenu.vim
   source $VIMRUNTIME/menu.vim
-  set guifont         =Consolas:h12
+  set guifont=CaskaydiaCove NF:h12
 endif
