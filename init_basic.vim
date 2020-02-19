@@ -84,15 +84,15 @@ noremap <leader>P "+P
 " encoding
 "=======================================
 if has('multi_byte')
-	" vim inner encoding
-	set encoding=utf-8
+    " vim inner encoding
+    set encoding=utf-8
     "language messages zh_CN.utf-8
 
-	" file encoding
-	set fileencoding=utf-8
+    " file encoding
+    set fileencoding=utf-8
 
-	" guest encoding
-	set fileencodings=ucs-bom,utf-8,gbk,gb18030,big5,euc-jp,latin1
+    " guest encoding
+    set fileencodings=ucs-bom,utf-8,gbk,gb18030,big5,euc-jp,latin1
 endif
 
 "=======================================

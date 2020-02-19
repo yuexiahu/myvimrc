@@ -1,11 +1,12 @@
 {
-    "suggest.autoTrigger": "always",
     "coc.preferences.currentFunctionSymbolAutoUpdate": true,
     "coc.preferences.extensionUpdateCheck": "daily",
     "coc.preferences.formatOnSaveFiletypes": ["go"],
     "coc.source.omni.enable": true,
     "coc.source.omni.filetypes": ["cmake"],
     "diagnostic.virtualText": true,
+    "diagnostic.warningSign": "!",
+    "suggest.autoTrigger": "always",
 
     //ccls
     "languageserver": {
