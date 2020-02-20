@@ -11,11 +11,13 @@ Plug 'tpope/vim-rsi' " emacs like keymap
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+
 Plug 'neoclide/coc.nvim', {'branch': 'release'}     " language-server client
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'sheerun/vim-polyglot' " language syntax improvment
-Plug 'ryanoasis/vim-devicons' " file icons, need NerdFont
 
 Plug 'joshdick/onedark.vim'
 Plug 'crusoexia/vim-monokai'
@@ -26,9 +28,10 @@ Plug 'honza/vim-snippets'
 
 Plug 'easymotion/vim-easymotion'
 
+Plug 'yuexiahu/a.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'yuexiahu/a.vim'
+Plug 'ryanoasis/vim-devicons' " file icons, need NerdFont
 
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 "Plug 'liuchengxu/vim-clap'
@@ -179,6 +182,12 @@ nnoremap <silent> \\p  :<C-u>CocListResume<CR>
 " Yank list
 nnoremap <silent> \\y  :<C-u>CocList -A --normal yank<cr>
 
+
+"=======================================
+" Plug 'plasticboy/vim-markdown'
+"=======================================
+let g:vim_markdown_fenced_languages = ['c++=cpp', 'viml=vim', 'bash=sh', 'ini=dosini', 'js=javascript']
+
 "=======================================
 " color scheme
 " Plug 'joshdick/onedark.vim'
@@ -238,9 +247,13 @@ let g:NERDTreeIndicatorMapCustom = {
 let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
 let g:Lf_WindowPosition='popup'
 let g:Lf_PreviewInPopup=1
-nmap <silent> <leader>f :Leaderf file<CR>
+let g:Lf_ShortcutF = '<C-P>'
+"nmap <silent> <C-p> :Leaderf file<CR>
+nmap <silent> <leader>f :Leaderf function<CR>
+nmap <silent> <leader>F :Leaderf function --all<CR>
 nmap <silent> <leader>b :Leaderf buffer<CR>
-nmap <silent> <leader>g :Leaderf rg<CR>
+nmap <silent> <leader>g :Leaderf rg --current-buffer<CR>
+nmap <silent> <leader>G :Leaderf rg<CR>
 nmap <silent> <leader>m :Leaderf mru<CR>
 
 "=======================================
