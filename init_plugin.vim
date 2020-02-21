@@ -6,7 +6,9 @@
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
-Plug 'tpope/vim-surround'
+Plug 'justinmk/vim-sneak'
+Plug 'machakann/vim-sandwich'
+"Plug 'tpope/vim-surround'
 Plug 'tpope/vim-rsi' " emacs like keymap
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -26,8 +28,6 @@ Plug 'vhdirk/vim-cmake'
 Plug 'richq/vim-cmake-completion'
 Plug 'honza/vim-snippets'
 
-Plug 'easymotion/vim-easymotion'
-
 Plug 'yuexiahu/a.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -40,6 +40,14 @@ Plug 'skywind3000/vim-terminal-help'
 
 Plug 'rhysd/vim-clang-format'
 Plug 'vim-scripts/DoxygenToolkit.vim'
+
+
+" text object
+Plug 'kana/vim-textobj-user' " text object customize
+Plug 'kana/vim-textobj-line' " l
+Plug 'kana/vim-textobj-entire' " e
+Plug 'kana/vim-textobj-indent' " i
+Plug 'kana/vim-textobj-function' " f F
 
 " Initialize plugin system
 call plug#end()
@@ -182,6 +190,21 @@ nnoremap <silent> \\p  :<C-u>CocListResume<CR>
 " Yank list
 nnoremap <silent> \\y  :<C-u>CocList -A --normal yank<cr>
 
+"=======================================
+" Plug 'justinmk/vim-sneak'
+"=======================================
+nmap <leader>s <Plug>Sneak_s
+nmap <leader>S <Plug>Sneak_S
+vmap <leader>s <Plug>Sneak_s
+vmap <leader>S <Plug>Sneak_S
+
+"=======================================
+" Plug 'justinmk/vim-sneak'
+"=======================================
+map f <Plug>Sneak_f
+map F <Plug>Sneak_F
+map t <Plug>Sneak_t
+map T <Plug>Sneak_T
 
 "=======================================
 " Plug 'plasticboy/vim-markdown'
@@ -270,10 +293,6 @@ endif
 nmap <silent> <F4> :A<CR>
 imap <silent> <F4> <Esc>:A<CR>
 nmap <silent> <F2> <Plug>(coc-definition)
-
-" easymotion
-nmap <leader>s <Plug>(easymotion-s2)
-nmap <leader>t <Plug>(easymotion-t2)
 
 " doxygen
 nmap <leader>d :Dox<CR>
