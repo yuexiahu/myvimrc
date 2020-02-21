@@ -270,10 +270,9 @@ let g:NERDTreeIndicatorMapCustom = {
 let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
 let g:Lf_WindowPosition='popup'
 let g:Lf_PreviewInPopup=1
-let g:Lf_ShortcutF = '<C-P>'
-"nmap <silent> <C-p> :Leaderf file<CR>
-nmap <silent> <leader>f :Leaderf function<CR>
-nmap <silent> <leader>F :Leaderf function --all<CR>
+let g:Lf_ShortcutF = '<leader>f'
+nmap <silent> <leader><leader>f :Leaderf function<CR>
+nmap <silent> <leader><leader>F :Leaderf function --all<CR>
 nmap <silent> <leader>b :Leaderf buffer<CR>
 nmap <silent> <leader>g :Leaderf rg --current-buffer<CR>
 nmap <silent> <leader>G :Leaderf rg<CR>
