@@ -151,11 +151,6 @@ nmap \ac  <Plug>(coc-codeaction)
 " Fix autofix problem of current line
 nmap \qf  <Plug>(coc-fix-current)
 
-" Use <tab> for select selections ranges, needs server support, like: coc-tsserver, coc-python
-nmap <silent> <TAB> <Plug>(coc-range-select)
-xmap <silent> <TAB> <Plug>(coc-range-select)
-xmap <silent> <S-TAB> <Plug>(coc-range-select-backword)
-
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
 
@@ -251,18 +246,29 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 map <C-n> :NERDTreeToggle<CR>
 
 let g:NERDTreeWinPos = "right"
+"let g:NERDTreeIndicatorMapCustom = {
+"    \ "Modified"  : "*",
+"    \ "Staged"    : "+",
+"    \ "Untracked" : " ",
+"    \ "Renamed"   : "@",
+"    \ "Unmerged"  : "=",
+"    \ "Deleted"   : "-",
+"    \ "Dirty"     : "!",
+"    \ "Clean"     : "%",
+"    \ "Unknown"   : "?"
+"    \}
 let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "*",
-    \ "Staged"    : "+",
-    \ "Untracked" : " ",
-    \ "Renamed"   : "@",
-    \ "Unmerged"  : "=",
-    \ "Deleted"   : "-",
-    \ "Dirty"     : "!",
-    \ "Clean"     : "%",
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '⛌',
     \ "Unknown"   : "?"
-    \}
-
+    \ }
 "=======================================
 " Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 " Plug 'liuchengxu/vim-clap'
@@ -289,12 +295,18 @@ endif
 " Keymaps
 "=======================================
 " qt creator keymap
-nmap <silent> <F4> :A<CR>
-imap <silent> <F4> <Esc>:A<CR>
+nmap <silent> <F4> :<C-u>A<CR>
 nmap <silent> <F2> <Plug>(coc-definition)
 
 " doxygen
-nmap <leader>d :Dox<CR>
+nmap <leader>d :<C-u>Dox<CR>
+
+" search words in workspace/buffer
+nmap <F3>   :<C-u>Leaderf rg --cword<CR>
+nmap <M-f>  :<C-u>Leaderf rg --current-buffer --cword<CR>
+nmap <M-F>  :<C-u>Leaderf rg --cword<CR>
+vmap <M-f>  "*y:Leaderf rg --current-buffer<CR><C-v>
+vmap <M-F>  "*y:Leaderf rg<CR><C-v>
 
 "=======================================
 " Autocmds
