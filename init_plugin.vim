@@ -32,6 +32,7 @@ Plug 'yuexiahu/a.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons' " file icons, need NerdFont
+Plug 'liuchengxu/vista.vim'
 
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 "Plug 'liuchengxu/vim-clap'
@@ -236,7 +237,6 @@ let g:cmake_ycm_symlinks = 1
 "=======================================
 " Plug 'scrooloose/nerdtree'
 "=======================================
-
 let NERDTreeIgnore = ['\.git', '\.svn', '\.swp', '\.vscode']
 
 " Close vim if the only window left open is a NERDTree
@@ -284,6 +284,14 @@ nmap <silent> <leader>g :Leaderf rg --current-buffer<CR>
 nmap <silent> <leader>G :Leaderf rg<CR>
 nmap <silent> <leader>m :Leaderf mru<CR>
 
+
+"=======================================
+" Plug 'liuchengxu/vista.vim'
+"=======================================
+let g:vista_default_executive = 'coc'
+nnoremap <C-m> :<C-u>Vista!!<CR>
+nnoremap <leader>o :<C-u>Vista finder<CR>
+
 "=======================================
 "Plug 'skywind3000/vim-terminal-help'
 "=======================================
@@ -297,20 +305,23 @@ endif
 " qt creator keymap
 nmap <silent> <F4> :<C-u>A<CR>
 nmap <silent> <F2> <Plug>(coc-definition)
+nnoremap <silent> <M-Left> <C-o>
+nnoremap <silent> <M-Right> <TAB>
 
 " doxygen
 nmap <leader>d :<C-u>Dox<CR>
 
 " search words in workspace/buffer
-nmap <F3>   :<C-u>Leaderf rg --cword<CR>
-nmap <M-f>  :<C-u>Leaderf rg --current-buffer --cword<CR>
-nmap <M-F>  :<C-u>Leaderf rg --cword<CR>
-vmap <M-f>  "*y:Leaderf rg --current-buffer<CR><C-v>
-vmap <M-F>  "*y:Leaderf rg<CR><C-v>
+nnoremap <silent> <F3>   :<C-u>Leaderf rg --cword<CR>
+nnoremap <silent> <M-f>  :<C-u>Leaderf rg --current-buffer --cword<CR>
+nnoremap <silent> <M-F>  :<C-u>Leaderf rg --cword<CR>
+vnoremap <silent> <M-f>  "*y:Leaderf rg --current-buffer<CR><C-v>
+vnoremap <silent> <M-F>  "*y:Leaderf rg<CR><C-v>
 
 "=======================================
 " Autocmds
 "=======================================
 autocmd BufWritePre *.go :CocCommand editor.action.organizeImport
 autocmd FileType json syntax match Comment +\/\/.\+$+
+autocmd VimEnter * silent! AirlineToggleWhitespace " default turn off whitespace detect
 
