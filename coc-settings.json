@@ -8,6 +8,15 @@
     "diagnostic.warningSign": "!",
     "suggest.autoTrigger": "always",
 
+	"list.insertMappings": {
+		"<C-j>": "normal:j",
+		"<C-k>": "normal:k"
+	},
+    "list.normalMappings": {
+		"<C-j>": "normal:j",
+		"<C-k>": "normal:k"
+    },
+
     "languageserver": {
         "ccls": {
             "enable": false,

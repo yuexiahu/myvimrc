@@ -39,9 +39,7 @@ Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'rlue/vim-barbaric' " smart im switcher
 Plug 'skywind3000/vim-terminal-help'
 
-Plug 'rhysd/vim-clang-format'
 Plug 'vim-scripts/DoxygenToolkit.vim'
-
 
 " text object
 Plug 'kana/vim-textobj-user' " text object customize
@@ -324,4 +322,3 @@ vnoremap <silent> <M-F>  "*y:Leaderf rg<CR><C-v>
 autocmd BufWritePre *.go :CocCommand editor.action.organizeImport
 autocmd FileType json syntax match Comment +\/\/.\+$+
 autocmd VimEnter * silent! AirlineToggleWhitespace " default turn off whitespace detect
-
