@@ -17,6 +17,8 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}     " language-server client
+"Plug 'jackguo380/vim-lsp-cxx-highlight' " C++ lsp highlight
+Plug 'liuchengxu/vista.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'sheerun/vim-polyglot' " language syntax improvment
@@ -32,7 +34,6 @@ Plug 'yuexiahu/a.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons' " file icons, need NerdFont
-Plug 'liuchengxu/vista.vim'
 
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 "Plug 'liuchengxu/vim-clap'
@@ -58,6 +59,7 @@ let g:coc_global_extensions = [
             \'coc-omni',
             \'coc-pairs',
             \'coc-snippets',
+            \'coc-clangd',
             \'coc-python',
             \'coc-go',
             \'coc-rls',
@@ -159,9 +161,6 @@ command! -nargs=? Fold :call CocAction('fold', <f-args>)
 " use `:OR` for organize import of current buffer
 command! -nargs=0 OR   :call CocAction('runCommand', 'editor.action.organizeImport')
 
-" Add status line support, for integration with other plugin, checkout `:h coc-status`
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
 " Using CocList
 " Show all diagnostics
 nnoremap <silent> \\d  :<C-u>CocList diagnostics<cr>
@@ -230,7 +229,6 @@ set background=dark
 " Plug 'vhdirk/vim-cmake'
 "=======================================
 let g:cmake_export_compile_commands = 1
-let g:cmake_ycm_symlinks = 1
 
 "=======================================
 " Plug 'scrooloose/nerdtree'
@@ -301,8 +299,9 @@ endif
 " Keymaps
 "=======================================
 " qt creator keymap
-nmap <silent> <F4> :<C-u>A<CR>
+nnoremap <silent> <F1> K
 nmap <silent> <F2> <Plug>(coc-definition)
+nmap <silent> <F4> :<C-u>A<CR>
 nnoremap <silent> <M-Left> <C-o>
 nnoremap <silent> <M-Right> <TAB>
 

@@ -27,19 +27,20 @@
                 "cache": {
                     "directory": "/tmp/ccls"
                 },
-                "compilationDatabaseDirectory": "build/"
+                "compilationDatabaseDirectory": "build/",
+                "highlight": { "lsRanges" : true }
             }
-        },
-
-        "clangd": {
-            "enable": true,
-            "command": "clangd",
-            "args": ["--background-index"],
-            "rootPatterns": ["compile_flags.txt", "compile_commands.json", ".git/", ".hg/"],
-            "filetypes": ["c", "cpp", "objc", "objcpp"]
         }
+        //"clangd": {
+        //    "enable": true,
+        //    "command": "clangd",
+        //    "args": ["--background-index"],
+        //    "rootPatterns": ["compile_flags.txt", "compile_commands.json", ".git/", ".hg/"],
+        //    "filetypes": ["c", "cpp", "objc", "objcpp"]
+        //}
     },
 
+    "clangd.enabled": true,
     "go.goplsOptions": {
         "completeUnimported": true
     }
