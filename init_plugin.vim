@@ -17,7 +17,7 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}     " language-server client
-"Plug 'jackguo380/vim-lsp-cxx-highlight' " C++ lsp highlight
+Plug 'jackguo380/vim-lsp-cxx-highlight' " C++ lsp highlight
 Plug 'liuchengxu/vista.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -37,7 +37,7 @@ Plug 'ryanoasis/vim-devicons' " file icons, need NerdFont
 
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 "Plug 'liuchengxu/vim-clap'
-Plug 'rlue/vim-barbaric' " smart im switcher
+Plug 'Yggdroot/LeaderF-marks'
 Plug 'skywind3000/vim-terminal-help'
 
 Plug 'vim-scripts/DoxygenToolkit.vim'
@@ -93,9 +93,14 @@ endfunction
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position. Coc only does snippet and additional edit on confirm.
+if has('patch8.1.1068')
+  " Use `complete_info` if your (Neo)Vim version supports it.
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
 
 " Use `[c` and `]c` to navigate diagnostics
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
@@ -119,7 +124,8 @@ function! s:show_documentation()
 endfunction
 
 " Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
+au CursorHold * silent call CocActionAsync('highlight')
+au CursorHoldI * silent call CocActionAsync('showSignatureHelp')
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
@@ -130,8 +136,8 @@ nmap \f  <Plug>(coc-format-selected)
 
 " multicursor
 nmap <silent> <C-c> <Plug>(coc-cursors-position)
-nmap <silent> <C-d> <Plug>(coc-cursors-word)
-xmap <silent> <C-d> <Plug>(coc-cursors-range)
+nmap <silent> <C-x> <Plug>(coc-cursors-word)
+xmap <silent> <C-x> <Plug>(coc-cursors-range)
 " use normal command like `<leader>xi(`
 nmap <leader>x  <Plug>(coc-cursors-operator)
 
@@ -270,8 +276,7 @@ let g:NERDTreeIndicatorMapCustom = {
 " Plug 'liuchengxu/vim-clap'
 "=======================================
 let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
-let g:Lf_WindowPosition='popup'
-let g:Lf_PreviewInPopup=1
+"let g:Lf_WindowPosition='popup'
 let g:Lf_ShortcutF = '<leader>f'
 nmap <silent> <leader><leader>f :Leaderf function<CR>
 nmap <silent> <leader><leader>F :Leaderf function --all<CR>
@@ -279,13 +284,14 @@ nmap <silent> <leader>b :Leaderf buffer<CR>
 nmap <silent> <leader>g :Leaderf rg --current-buffer<CR>
 nmap <silent> <leader>G :Leaderf rg<CR>
 nmap <silent> <leader>m :Leaderf mru<CR>
+nmap <silent> <leader>` :Leaderf marks<CR>
 
 
 "=======================================
 " Plug 'liuchengxu/vista.vim'
 "=======================================
 let g:vista_default_executive = 'coc'
-nnoremap <C-m> :<C-u>Vista!!<CR>
+nnoremap <leader>v :<C-u>Vista!!<CR>
 nnoremap <leader>o :<C-u>Vista finder<CR>
 
 "=======================================

@@ -7,6 +7,7 @@
     "diagnostic.virtualText": true,
     "diagnostic.warningSign": "!",
     "suggest.autoTrigger": "always",
+    "suggest.snippetIndicator": "►",
 
 	"list.insertMappings": {
 		"<C-j>": "normal:j",
@@ -19,7 +20,7 @@
 
     "languageserver": {
         "ccls": {
-            "enable": false,
+            "enable": true,
             "command": "ccls",
             "filetypes": ["c", "cpp", "objc", "objcpp"],
             "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
@@ -27,7 +28,9 @@
                 "cache": {
                     "directory": "/tmp/ccls"
                 },
-                "compilationDatabaseDirectory": "build/",
+                "client": {
+                    "snippetSupport": true
+                },
                 "highlight": { "lsRanges" : true }
             }
         }
@@ -40,7 +43,7 @@
         //}
     },
 
-    "clangd.enabled": true,
+    "clangd.enabled": false,
     "go.goplsOptions": {
         "completeUnimported": true
     }
