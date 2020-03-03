@@ -304,10 +304,17 @@ if has('win32')
 endif
 
 "=======================================
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
 "=======================================
 let g:airline_powerline_fonts = 1
+
+"=======================================
+" Plug 'sheerun/vim-polyglot'
+" Plug 'jackguo380/vim-lsp-cxx-highlight'
+"=======================================
+highlight LspCxxHLSymMacro gui=bold
+highlight LspCxxHlGroupMemberVariable guifg=#ABB2BF gui=italic
 
 "=======================================
 " Keymaps
