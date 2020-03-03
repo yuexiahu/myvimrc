@@ -39,6 +39,7 @@ Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 "Plug 'liuchengxu/vim-clap'
 Plug 'Yggdroot/LeaderF-marks'
 Plug 'skywind3000/vim-terminal-help'
+Plug 'rlue/vim-barbaric'
 
 Plug 'vim-scripts/DoxygenToolkit.vim'
 
@@ -224,10 +225,11 @@ if has("termguicolors")
     set termguicolors
 endif
 
-"color onedark
-color monokai
+color onedark
+"color monokai
 let g:monokai_term_italic = 1
 let g:monokai_gui_italic = 1
+let g:onedark_terminal_italics = 1
 
 set background=dark
 
@@ -300,6 +302,12 @@ nnoremap <leader>o :<C-u>Vista finder<CR>
 if has('win32')
     let g:terminal_shell = "powershell"
 endif
+
+"=======================================
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+"=======================================
+let g:airline_powerline_fonts = 1
 
 "=======================================
 " Keymaps

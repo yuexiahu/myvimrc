@@ -5,9 +5,8 @@
     "coc.source.omni.enable": true,
     "coc.source.omni.filetypes": ["cmake"],
     "diagnostic.virtualText": true,
-    "diagnostic.warningSign": "!",
+    "diagnostic.warningSign": "\uf071",
     "suggest.autoTrigger": "always",
-    "suggest.snippetIndicator": "►",
 
 	"list.insertMappings": {
 		"<C-j>": "normal:j",
