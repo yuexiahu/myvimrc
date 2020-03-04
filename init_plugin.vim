@@ -14,7 +14,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
 Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}     " language-server client
 Plug 'jackguo380/vim-lsp-cxx-highlight' " C++ lsp highlight
@@ -40,6 +39,7 @@ Plug 'skywind3000/vim-terminal-help'
 Plug 'rlue/vim-barbaric'
 
 Plug 'vim-scripts/DoxygenToolkit.vim'
+Plug 'skywind3000/vim-dict'
 
 " text object
 Plug 'kana/vim-textobj-user' " text object customize
@@ -205,11 +205,6 @@ map t <Plug>Sneak_t
 map T <Plug>Sneak_T
 
 "=======================================
-" Plug 'plasticboy/vim-markdown'
-"=======================================
-let g:vim_markdown_fenced_languages = ['c++=cpp', 'viml=vim', 'bash=sh', 'ini=dosini', 'js=javascript']
-
-"=======================================
 " color scheme
 " Plug 'joshdick/onedark.vim'
 " Plug 'crusoexia/vim-monokai'
@@ -223,8 +218,8 @@ if has("termguicolors")
     set termguicolors
 endif
 
-color onedark
-"color monokai
+"color onedark
+color monokai
 let g:monokai_term_italic = 1
 let g:monokai_gui_italic = 1
 let g:onedark_terminal_italics = 1
@@ -306,7 +301,11 @@ let g:airline_powerline_fonts = 1
 " Plug 'jackguo380/vim-lsp-cxx-highlight'
 "=======================================
 highlight LspCxxHLSymMacro gui=bold
-highlight LspCxxHlGroupMemberVariable guifg=#ABB2BF gui=italic
+highlight LspCxxHlGroupMemberVariable gui=italic
+if colors_name == "monokai"
+elseif colors_name == "onedark"
+    highlight LspCxxHlGroupMemberVariable guifg=#ABB2BF
+endif
 
 "=======================================
 " Keymaps
