@@ -37,7 +37,7 @@ set lazyredraw                      " Only redraw when necessary.
 set splitbelow                      " Open new windows below the current window.
 set splitright                      " Open new windows right of the current window.
 
-set cursorline                      " Find the current line quickly.
+"set cursorline                      " Find the current line quickly.
 set wrapscan                        " Searches wrap around end-of-file.
 set report      =0                  " Always report changed lines.
 set synmaxcol   =200                " Only highlight the first 200 columns.
@@ -66,22 +66,23 @@ let g:netrw_winsize     =25         " Window width 25%
 "=======================================
 let mapleader=" "
 " Reload vimrc
-nnoremap <leader>R :source ~/.vim/init.vim<CR>
+nnoremap <leader>R :<C-u>source ~/.vim/init.vim<CR>
 " Open vimrc
-nnoremap <leader>E :e ~/.vim/init.vim<CR>
-nnoremap <leader>Eb :e ~/.vim/init_basic.vim<CR>
-nnoremap <leader>Ep :e ~/.vim/init_plugin.vim<CR>
+nnoremap <leader>E :<C-u>e ~/.vim/init.vim<CR>
+nnoremap <leader>Eb :<C-u>e ~/.vim/init_basic.vim<CR>
+nnoremap <leader>Ep :<C-u>e ~/.vim/init_plugin.vim<CR>
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 function! SudoWrite()
     :w !sudo tee > /dev/null %
 endfunction
 command! W call SudoWrite()
 " Replace windows path to linux style
-nnoremap <leader>rp :%s/\\\+/\//g<CR>
+nnoremap <leader>rp :<C-u>%s/\\\+/\//g<CR>
 " Use clipboard with <leader> y/p
 noremap <leader>y "+y
 noremap <leader>p "+p
 noremap <leader>P "+P
+noremap <silent> Q :<C-u>bd<CR>
 
 "=======================================
 " encoding

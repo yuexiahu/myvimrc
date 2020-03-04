@@ -18,7 +18,6 @@ Plug 'plasticboy/vim-markdown'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}     " language-server client
 Plug 'jackguo380/vim-lsp-cxx-highlight' " C++ lsp highlight
-Plug 'liuchengxu/vista.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'sheerun/vim-polyglot' " language syntax improvment
@@ -28,7 +27,6 @@ Plug 'crusoexia/vim-monokai'
 
 Plug 'vhdirk/vim-cmake'
 Plug 'richq/vim-cmake-completion'
-Plug 'honza/vim-snippets'
 
 Plug 'yuexiahu/a.vim'
 Plug 'scrooloose/nerdtree'
@@ -277,24 +275,18 @@ let g:NERDTreeIndicatorMapCustom = {
 " Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 " Plug 'liuchengxu/vim-clap'
 "=======================================
-let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
+let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
 "let g:Lf_WindowPosition='popup'
 let g:Lf_ShortcutF = '<leader>f'
-nmap <silent> <leader><leader>f :Leaderf function<CR>
-nmap <silent> <leader><leader>F :Leaderf function --all<CR>
-nmap <silent> <leader>b :Leaderf buffer<CR>
-nmap <silent> <leader>g :Leaderf rg --current-buffer<CR>
-nmap <silent> <leader>G :Leaderf rg<CR>
-nmap <silent> <leader>m :Leaderf mru<CR>
-nmap <silent> <leader>` :Leaderf marks<CR>
-
-
-"=======================================
-" Plug 'liuchengxu/vista.vim'
-"=======================================
-let g:vista_default_executive = 'coc'
-nnoremap <leader>v :<C-u>Vista!!<CR>
-nnoremap <leader>o :<C-u>Vista finder<CR>
+nmap <silent> <leader><leader>f :<C-u>Leaderf function<CR>
+nmap <silent> <leader><leader>F :<C-u>Leaderf function --all<CR>
+nmap <silent> <leader>b :<C-u>Leaderf buffer<CR>
+nmap <silent> <leader>g :<C-u>Leaderf rg --current-buffer<CR>
+nmap <silent> <leader>G :<C-u>Leaderf rg<CR>
+nmap <silent> <leader>m :<C-u>Leaderf mru<CR>
+nmap <silent> <leader>` :<C-u>Leaderf marks<CR>
+nmap <silent> <leader>o :<C-u>Leaderf bufTag<CR>
+nmap <silent> <leader>O :<C-u>Leaderf bufTag --all<CR>
 
 "=======================================
 "Plug 'skywind3000/vim-terminal-help'
