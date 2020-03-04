@@ -51,6 +51,7 @@ endif
 
 set nowrap                          " No line wrap
 
+set t_Co        =256
 set t_vb        =                   " Disable screen flash
 set mouse       =nv
 
@@ -119,6 +120,7 @@ if has('gui_running')
     set guicursor+=a:blinkon0
     " turn off bells sound
     autocmd GUIEnter * set vb t_vb=
+    autocmd GUIEnter * set vb t_Co=256
     " windows python support
     set pythonthreedll=python38.dll
 endif
