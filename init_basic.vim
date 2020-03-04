@@ -103,7 +103,22 @@ endif
 " gui
 "=======================================
 if has('gui_running')
-  source $VIMRUNTIME/delmenu.vim
-  source $VIMRUNTIME/menu.vim
-  set guifont=CaskaydiaCove NF:h12
+    source $VIMRUNTIME/delmenu.vim
+    source $VIMRUNTIME/menu.vim
+    set guifont=CaskaydiaCove_NF:h12
+    " hide toolbar
+    set guioptions-=T
+    set guioptions-=m
+    set guioptions-=L
+    set guioptions-=r
+    set guioptions-=b
+    " hide tab gui
+    set guioptions-=e
+    set nolist
+    " turn off cursor blinking
+    set guicursor+=a:blinkon0
+    " turn off bells sound
+    autocmd GUIEnter * set vb t_vb=
+    " windows python support
+    set pythonthreedll=python38.dll
 endif
