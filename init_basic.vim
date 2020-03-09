@@ -106,7 +106,11 @@ endif
 if has('gui_running')
     source $VIMRUNTIME/delmenu.vim
     source $VIMRUNTIME/menu.vim
-    set guifont=CaskaydiaCove_NF:h12
+    if has('win32')
+        set guifont=CaskaydiaCove\ NF:h12
+    else
+        set guifont=CaskaydiaCove\ Nerd\ Font:h12
+    endif
     " hide toolbar
     set guioptions-=T
     set guioptions-=m
