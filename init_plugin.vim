@@ -38,8 +38,9 @@ Plug 'Yggdroot/LeaderF-marks'
 Plug 'skywind3000/vim-terminal-help'
 Plug 'rlue/vim-barbaric'
 
+Plug 'honza/vim-snippets'
 Plug 'vim-scripts/DoxygenToolkit.vim'
-Plug 'skywind3000/vim-dict'
+"Plug 'skywind3000/vim-dict'
 
 " text object
 Plug 'kana/vim-textobj-user' " text object customize
@@ -271,7 +272,7 @@ let g:NERDTreeIndicatorMapCustom = {
 " Plug 'liuchengxu/vim-clap'
 "=======================================
 let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
-"let g:Lf_WindowPosition='popup'
+let g:Lf_WindowPosition='popup'
 let g:Lf_ShortcutF = '<leader>f'
 nmap <silent> <leader><leader>f :<C-u>Leaderf function<CR>
 nmap <silent> <leader><leader>F :<C-u>Leaderf function --all<CR>
@@ -295,6 +296,28 @@ endif
 "Plug 'vim-airline/vim-airline-themes'
 "=======================================
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
+let g:airline#extensions#tabline#show_tab_nr = 1
+let g:airline#extensions#tabline#formatter = 'default'
+let g:airline#extensions#tabline#buffer_nr_show = 0
+let g:airline#extensions#tabline#fnametruncate = 16
+let g:airline#extensions#tabline#fnamecollapse = 2
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+
+map <leader>1 <Plug>AirlineSelectTab1
+map <leader>2 <Plug>AirlineSelectTab2
+map <leader>3 <Plug>AirlineSelectTab3
+map <leader>4 <Plug>AirlineSelectTab4
+map <leader>5 <Plug>AirlineSelectTab5
+map <leader>6 <Plug>AirlineSelectTab6
+map <leader>7 <Plug>AirlineSelectTab7
+map <leader>8 <Plug>AirlineSelectTab8
+map <leader>9 <Plug>AirlineSelectTab9
+map g<Tab> <Plug>AirlineSelectPrevTab
+map gt <Plug>AirlineSelectNextTab
+map <C-PageUp> <Plug>AirlineSelectPrevTab
+map <C-PageDown> <Plug>AirlineSelectNextTab
 
 "=======================================
 " Plug 'sheerun/vim-polyglot'
