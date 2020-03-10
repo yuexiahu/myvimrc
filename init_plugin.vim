@@ -33,7 +33,6 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons' " file icons, need NerdFont
 
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
-"Plug 'liuchengxu/vim-clap'
 Plug 'Yggdroot/LeaderF-marks'
 Plug 'skywind3000/vim-terminal-help'
 Plug 'rlue/vim-barbaric'
@@ -299,10 +298,9 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
 let g:airline#extensions#tabline#show_tab_nr = 1
-let g:airline#extensions#tabline#formatter = 'default'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#tabline#buffer_nr_show = 0
 let g:airline#extensions#tabline#fnametruncate = 16
-let g:airline#extensions#tabline#fnamecollapse = 2
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 
 map <leader>1 <Plug>AirlineSelectTab1
@@ -318,6 +316,12 @@ map g<Tab> <Plug>AirlineSelectPrevTab
 map gt <Plug>AirlineSelectNextTab
 map <C-PageUp> <Plug>AirlineSelectPrevTab
 map <C-PageDown> <Plug>AirlineSelectNextTab
+
+function! CocCurrentFunction() abort
+  return get(b:, 'coc_current_function', '')
+endfunction
+call airline#parts#define_function('func', 'CocCurrentFunction')
+let g:airline_section_x = airline#section#create_right(['bookmark', 'func', 'filetype'])
 
 "=======================================
 " Plug 'sheerun/vim-polyglot'
