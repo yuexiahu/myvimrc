@@ -40,6 +40,7 @@ Plug 'rlue/vim-barbaric'
 Plug 'honza/vim-snippets'
 Plug 'vim-scripts/DoxygenToolkit.vim'
 "Plug 'skywind3000/vim-dict'
+Plug 'voldikss/vim-translator'
 
 " text object
 Plug 'kana/vim-textobj-user' " text object customize
@@ -335,6 +336,12 @@ elseif colors_name == "onedark"
 endif
 
 "=======================================
+" Plug 'voldikss/vim-translator'
+"=======================================
+vmap <silent> <C-t> <Plug>TranslateV
+nmap <silent> <C-t> <Plug>Translate
+
+"=======================================
 " Keymaps
 "=======================================
 " qt creator keymap
@@ -353,6 +360,7 @@ nnoremap <silent> <M-f>  :<C-u>Leaderf rg --current-buffer --cword<CR>
 nnoremap <silent> <M-F>  :<C-u>Leaderf rg --cword<CR>
 vnoremap <silent> <M-f>  "*y:Leaderf rg --current-buffer<CR><C-v>
 vnoremap <silent> <M-F>  "*y:Leaderf rg<CR><C-v>
+
 
 "=======================================
 " Autocmds
