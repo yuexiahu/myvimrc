@@ -304,19 +304,19 @@ let g:airline#extensions#tabline#buffer_nr_show = 0
 let g:airline#extensions#tabline#fnametruncate = 16
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 
-map <leader>1 <Plug>AirlineSelectTab1
-map <leader>2 <Plug>AirlineSelectTab2
-map <leader>3 <Plug>AirlineSelectTab3
-map <leader>4 <Plug>AirlineSelectTab4
-map <leader>5 <Plug>AirlineSelectTab5
-map <leader>6 <Plug>AirlineSelectTab6
-map <leader>7 <Plug>AirlineSelectTab7
-map <leader>8 <Plug>AirlineSelectTab8
-map <leader>9 <Plug>AirlineSelectTab9
-map g<Tab> <Plug>AirlineSelectPrevTab
-map gt <Plug>AirlineSelectNextTab
-map <C-PageUp> <Plug>AirlineSelectPrevTab
-map <C-PageDown> <Plug>AirlineSelectNextTab
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+nmap <leader>8 <Plug>AirlineSelectTab8
+nmap <leader>9 <Plug>AirlineSelectTab9
+nmap g<Tab> <Plug>AirlineSelectPrevTab
+nmap gt <Plug>AirlineSelectNextTab
+nmap <C-PageUp> <Plug>AirlineSelectPrevTab
+nmap <C-PageDown> <Plug>AirlineSelectNextTab
 
 function! CocCurrentFunction() abort
   return get(b:, 'coc_current_function', '')
