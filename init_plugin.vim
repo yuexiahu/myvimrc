@@ -50,6 +50,8 @@ Plug 'kana/vim-textobj-entire' " e
 Plug 'kana/vim-textobj-indent' " i
 Plug 'kana/vim-textobj-function' " f F
 
+Plug 'terryma/vim-smooth-scroll'
+
 " Initialize plugin system
 call plug#end()
 
@@ -369,6 +371,10 @@ nnoremap <silent> <M-F>  :<C-u>Leaderf rg --cword<CR>
 vnoremap <silent> <M-f>  "*y:Leaderf rg --current-buffer<CR><C-v>
 vnoremap <silent> <M-F>  "*y:Leaderf rg<CR><C-v>
 
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 
 "=======================================
 " Autocmds
