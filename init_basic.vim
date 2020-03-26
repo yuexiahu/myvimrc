@@ -79,6 +79,7 @@ endfunction
 command! W call SudoWrite()
 " Replace windows path to linux style
 nnoremap <leader>rp :<C-u>%s/\\\+/\//g<CR>
+vnoremap <leader>rp :<C-u>'<,'>s/\\\+/\//g<CR>
 " Use clipboard with <leader> y/p
 noremap <leader>y "+y
 noremap <leader>p "+p
@@ -103,14 +104,14 @@ endif
 "=======================================
 " gui
 "=======================================
+if has('win32')
+    set guifont=CaskaydiaCove\ NF:h12
+else
+    set guifont=CaskaydiaCove\ Nerd\ Font:h12
+endif
 if has('gui_running')
     source $VIMRUNTIME/delmenu.vim
     source $VIMRUNTIME/menu.vim
-    if has('win32')
-        set guifont=CaskaydiaCove\ NF:h12
-    else
-        set guifont=CaskaydiaCove\ Nerd\ Font:h12
-    endif
     " hide toolbar
     set guioptions-=T
     set guioptions-=m

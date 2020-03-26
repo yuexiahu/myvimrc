@@ -247,17 +247,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 map <C-n> :NERDTreeToggle<CR>
 
 let g:NERDTreeWinPos = "right"
-"let g:NERDTreeIndicatorMapCustom = {
-"    \ "Modified"  : "*",
-"    \ "Staged"    : "+",
-"    \ "Untracked" : " ",
-"    \ "Renamed"   : "@",
-"    \ "Unmerged"  : "=",
-"    \ "Deleted"   : "-",
-"    \ "Dirty"     : "!",
-"    \ "Clean"     : "%",
-"    \ "Unknown"   : "?"
-"    \}
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "✹",
     \ "Staged"    : "✚",
@@ -277,15 +266,16 @@ let g:NERDTreeIndicatorMapCustom = {
 let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
 let g:Lf_WindowPosition='popup'
 let g:Lf_ShortcutF = '<leader>f'
-nmap <silent> <leader><leader>f :<C-u>Leaderf function<CR>
-nmap <silent> <leader><leader>F :<C-u>Leaderf function --all<CR>
-nmap <silent> <leader>b :<C-u>Leaderf buffer<CR>
-nmap <silent> <leader>g :<C-u>Leaderf rg --current-buffer<CR>
-nmap <silent> <leader>G :<C-u>Leaderf rg<CR>
-nmap <silent> <leader>m :<C-u>Leaderf mru<CR>
-nmap <silent> <leader>` :<C-u>Leaderf marks<CR>
-nmap <silent> <leader>o :<C-u>Leaderf bufTag<CR>
-nmap <silent> <leader>O :<C-u>Leaderf bufTag --all<CR>
+nnoremap <silent> <leader><leader>f :<C-u>Leaderf function<CR>
+nnoremap <silent> <leader><leader>F :<C-u>Leaderf function --all<CR>
+nnoremap <silent> <leader>b :<C-u>Leaderf buffer<CR>
+nnoremap <silent> <leader>g :<C-u>Leaderf rg --current-buffer<CR>
+nnoremap <silent> <leader>G :<C-u>Leaderf rg<CR>
+nnoremap <silent> <leader>m :<C-u>Leaderf mru<CR>
+nnoremap <silent> <leader>` :<C-u>Leaderf marks<CR>
+nnoremap <silent> <leader>o :<C-u>Leaderf bufTag<CR>
+nnoremap <silent> <leader>O :<C-u>Leaderf bufTag --all<CR>
+nnoremap <silent> <leader><leader>r :<C-u>Leaderf --recall<CR>
 
 "=======================================
 "Plug 'skywind3000/vim-terminal-help'

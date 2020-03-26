@@ -38,6 +38,7 @@
     },
 
     "clangd.enabled": true,
+    "clangd.semanticHighlighting": true,
     "go.goplsOptions": {
         "completeUnimported": true
     }
