@@ -6,7 +6,7 @@ set nocompatible                    " Disable vi compatible
 filetype plugin indent on           " Load plugins according to detected filetype.
 syntax on                           " Enable syntax highlighting.
 set number                          " Enable line number
-set relativenumber                  " Relative line number
+"set relativenumber                  " Relative line number
 
 set autoindent                      " Indent according to previous line.
 set expandtab                       " Use spaces instead of tabs.

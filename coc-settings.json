@@ -21,7 +21,7 @@
 
     "languageserver": {
         "ccls": {
-            "enable": true,
+            "enable": false,
             "command": "ccls",
             "filetypes": ["c", "cpp", "objc", "objcpp"],
             "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
@@ -35,16 +35,9 @@
                 "highlight": { "lsRanges" : true }
             }
         }
-        //"clangd": {
-        //    "enable": true,
-        //    "command": "clangd",
-        //    "args": ["--background-index"],
-        //    "rootPatterns": ["compile_flags.txt", "compile_commands.json", ".git/", ".hg/"],
-        //    "filetypes": ["c", "cpp", "objc", "objcpp"]
-        //}
     },
 
-    "clangd.enabled": false,
+    "clangd.enabled": true,
     "go.goplsOptions": {
         "completeUnimported": true
     }

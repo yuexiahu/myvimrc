@@ -11,6 +11,7 @@ Plug 'machakann/vim-sandwich'
 "Plug 'tpope/vim-surround'
 Plug 'tpope/vim-rsi' " emacs like keymap
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
 Plug 'airblade/vim-gitgutter'
 
 Plug 'godlygeek/tabular'
@@ -338,8 +339,14 @@ endif
 "=======================================
 " Plug 'voldikss/vim-translator'
 "=======================================
-vmap <silent> <C-t> <Plug>TranslateV
-nmap <silent> <C-t> <Plug>Translate
+vmap <silent> <F8> <Plug>TranslateV
+nmap <silent> <F8> <Plug>Translate
+
+"=======================================
+" Plug 'airblade/vim-gitgutter'
+"=======================================
+nmap ]h <Plug>(GitGutterNextHunk)
+nmap [h <Plug>(GitGutterPrevHunk)
 
 "=======================================
 " Keymaps
@@ -347,7 +354,8 @@ nmap <silent> <C-t> <Plug>Translate
 " qt creator keymap
 nnoremap <silent> <F1> K
 nmap <silent> <F2> <Plug>(coc-definition)
-nmap <silent> <F4> :<C-u>A<CR>
+"nmap <silent> <F4> :<C-u>A<CR>
+nnoremap <silent> <F4> :<C-u>CocCommand clangd.switchSourceHeader<CR>
 nnoremap <silent> <M-Left> <C-o>
 nnoremap <silent> <M-Right> <TAB>
 
@@ -368,3 +376,4 @@ vnoremap <silent> <M-F>  "*y:Leaderf rg<CR><C-v>
 autocmd BufWritePre *.go :CocCommand editor.action.organizeImport
 autocmd FileType json syntax match Comment +\/\/.\+$+
 autocmd VimEnter * silent! AirlineToggleWhitespace " default turn off whitespace detect
+autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s " vim-commentary comment style
