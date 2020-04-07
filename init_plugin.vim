@@ -222,13 +222,13 @@ if has("termguicolors")
     set termguicolors
 endif
 
-"color onedark
-color monokai
 let g:monokai_term_italic = 1
 let g:monokai_gui_italic = 1
+let g:onedark_hide_endofbuffer = 1
 let g:onedark_terminal_italics = 1
-
 set background=dark
+"color onedark
+color monokai
 
 "=======================================
 " Plug 'vhdirk/vim-cmake'
@@ -244,8 +244,13 @@ let NERDTreeIgnore = ['\.git', '\.svn', '\.swp', '\.vscode']
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Open and close NERDTree
-map <C-n> :NERDTreeToggle<CR>
+nnoremap <C-n> :<C-u>NERDTreeToggle<CR>
 
+let g:NERDTreeExactMatchHighlightFullName = 1
+let g:NERDTreeFileExtensionHighlightFullName = 1
+let g:NERDTreeHighlightFolders = 1
+let g:NERDTreeHighlightFoldersFullName = 1
+let g:NERDTreePatternMatchHighlightFullName = 1
 let g:NERDTreeWinPos = "right"
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "✹",
