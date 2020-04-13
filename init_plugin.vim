@@ -336,8 +336,10 @@ endif
 "=======================================
 " Plug 'voldikss/vim-translator'
 "=======================================
-vmap <silent> <F8> <Plug>TranslateV
-nmap <silent> <F8> <Plug>Translate
+let g:translator_default_engines = ['bing', 'google', 'haici', 'iciba', 'youdao']
+let g:translator_window_type = "preview"
+vmap <silent> <F8> <Plug>TranslateWV
+nmap <silent> <F8> <Plug>TranslateW
 
 "=======================================
 " Plug 'airblade/vim-gitgutter'
