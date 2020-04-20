@@ -269,7 +269,8 @@ let g:NERDTreeIndicatorMapCustom = {
 " Plug 'liuchengxu/vim-clap'
 "=======================================
 let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
-let g:Lf_WindowPosition='popup'
+let g:Lf_WindowPosition = 'popup'
+let g:Lf_PreviewInPopup = 1
 let g:Lf_ShortcutF = '<leader>f'
 nnoremap <silent> <leader><leader>f :<C-u>Leaderf function<CR>
 nnoremap <silent> <leader><leader>F :<C-u>Leaderf function --all<CR>
@@ -353,8 +354,8 @@ nmap [h <Plug>(GitGutterPrevHunk)
 " qt creator keymap
 nnoremap <silent> <F1> K
 nmap <silent> <F2> <Plug>(coc-definition)
-"nmap <silent> <F4> :<C-u>A<CR>
-nnoremap <silent> <F4> :<C-u>CocCommand clangd.switchSourceHeader<CR>
+nnoremap <silent> <F4> :<C-u>A<CR>
+"nnoremap <silent> <F4> :<C-u>CocCommand clangd.switchSourceHeader<CR>
 nnoremap <silent> <M-Left> <C-o>
 nnoremap <silent> <M-Right> <TAB>
 
@@ -376,7 +377,6 @@ noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 "=======================================
 " Autocmds
 "=======================================
-autocmd BufWritePre *.go :CocCommand editor.action.organizeImport
 autocmd FileType json syntax match Comment +\/\/.\+$+
 autocmd VimEnter * silent! AirlineToggleWhitespace " default turn off whitespace detect
 autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s " vim-commentary comment style

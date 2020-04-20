@@ -21,7 +21,7 @@
 
     "languageserver": {
         "ccls": {
-            "enable": false,
+            "enable": true,
             "command": "ccls",
             "filetypes": ["c", "cpp", "objc", "objcpp"],
             "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
@@ -37,7 +37,7 @@
         }
     },
 
-    "clangd.enabled": true,
+    "clangd.enabled": false,
     "clangd.semanticHighlighting": true,
     "go.goplsOptions": {
         "completeUnimported": true
