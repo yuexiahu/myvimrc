@@ -89,6 +89,10 @@ noremap <leader>y "+y
 noremap <leader>p "+p
 noremap <leader>P "+P
 noremap <silent> Q :<C-u>bd<CR>
+" qt creator keymap
+nnoremap <silent> <F1> K
+nnoremap <silent> <M-Left> <C-o>
+nnoremap <silent> <M-Right> <TAB>
 
 "=======================================
 " encoding
@@ -133,3 +137,9 @@ if has('gui_running')
     " windows python support
     set pythonthreedll=python38.dll
 endif
+
+"=======================================
+" Autocmds
+"=======================================
+autocmd FileType json syntax match Comment +\/\/.\+$+
+autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s " vim-commentary comment style
