@@ -8,13 +8,13 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'justinmk/vim-sneak'
 Plug 'machakann/vim-sandwich'
-"Plug 'tpope/vim-surround'
 Plug 'tpope/vim-rsi' " emacs like keymap
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'airblade/vim-gitgutter'
 
 Plug 'godlygeek/tabular'
+Plug 'rhysd/vim-clang-format'
 
 "Plug 'ycm-core/YouCompleteMe', { 'do': './install.py' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}     " language-server client
@@ -44,7 +44,6 @@ Plug 'vim-scripts/DoxygenToolkit.vim'
 "Plug 'skywind3000/vim-dict'
 Plug 'voldikss/vim-translator'
 
-" text object
 Plug 'kana/vim-textobj-user' " text object customize
 Plug 'kana/vim-textobj-line' " l
 Plug 'kana/vim-textobj-entire' " e
@@ -401,4 +400,17 @@ endif
 "=======================================
 if HasPlug('a.vim')
     nnoremap <silent> <F4> :<C-u>A<CR>
+endif
+
+"=======================================
+" Plug 'rhysd/vim-clang-format'
+"=======================================
+if HasPlug('vim-clang-format')
+    let g:clang_format#code_style = "Microsoft"
+    let g:clang_format#style_options = {
+                \ 'AccessModifierOffset' : '-4',
+                \ 'SpaceBeforeParens' : 'Never',
+                \ 'PointerAlignment' : 'Left'}
+    autocmd FileType c,cpp nnoremap <buffer><C-i> :<C-u>ClangFormat<CR>
+    autocmd FileType c,cpp vnoremap <buffer><C-i> :ClangFormat<CR>
 endif
