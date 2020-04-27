@@ -54,7 +54,7 @@ Plug 'kana/vim-textobj-function' " f F
 call plug#end()
 
 function! HasPlug(name)
-    return has_key(g:plugs, a:name)
+    return has_key(g:plugs, a:name) && isdirectory($HOME . "/.vim/plugged/" . a:name)
 endfunction
 
 "=======================================
