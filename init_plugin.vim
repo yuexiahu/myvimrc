@@ -104,7 +104,8 @@ if HasPlug('coc.nvim')
     if exists('*complete_info')
         inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
     else
-        imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+        " imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>" " vim freezon
+        imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
     endif
 
     " Use `[c` and `]c` to navigate diagnostics
