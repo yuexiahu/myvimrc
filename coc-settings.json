@@ -10,13 +10,13 @@
     "signature.target": "echo",
     "suggest.labelMaxLength": 80,
 
-	"list.insertMappings": {
-		"<C-j>": "normal:j",
-		"<C-k>": "normal:k"
-	},
+    "list.insertMappings": {
+        "<C-j>": "normal:j",
+        "<C-k>": "normal:k"
+    },
     "list.normalMappings": {
-		"<C-j>": "normal:j",
-		"<C-k>": "normal:k"
+        "<C-j>": "normal:j",
+        "<C-k>": "normal:k"
     },
 
     "languageserver": {

@@ -37,7 +37,6 @@ Plug 'ryanoasis/vim-devicons' " file icons, need NerdFont
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'Yggdroot/LeaderF-marks'
 Plug 'skywind3000/vim-terminal-help'
-Plug 'rlue/vim-barbaric'
 
 Plug 'honza/vim-snippets'
 Plug 'vim-scripts/DoxygenToolkit.vim'
@@ -49,6 +48,11 @@ Plug 'kana/vim-textobj-line' " l
 Plug 'kana/vim-textobj-entire' " e
 Plug 'kana/vim-textobj-indent' " i
 Plug 'kana/vim-textobj-function' " f F
+
+Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'roxma/vim-tmux-clipboard'
+Plug 'brglng/vim-im-select'
+"Plug 'rlue/vim-barbaric'
 
 " Initialize plugin system
 call plug#end()
@@ -228,10 +232,10 @@ if has("termguicolors")
     set termguicolors
 endif
 
-let g:monokai_term_italic = 1
-let g:monokai_gui_italic = 1
+let g:monokai_term_italic = 0
+let g:monokai_gui_italic = 0
 let g:onedark_hide_endofbuffer = 1
-let g:onedark_terminal_italics = 1
+let g:onedark_terminal_italics = 0
 set background=dark
 
 if HasPlug('onedark.vim')
@@ -413,4 +417,17 @@ if HasPlug('vim-clang-format')
                 \ 'PointerAlignment' : 'Left'}
     autocmd FileType c,cpp nnoremap <buffer><C-i> :<C-u>ClangFormat<CR>
     autocmd FileType c,cpp vnoremap <buffer><C-i> :ClangFormat<CR>
+endif
+
+
+"=======================================
+" Plug 'brglng/vim-im-select'
+"=======================================
+if HasPlug('vim-im-select')
+    let g:im_select_command = "/mnt/c/Windows/im-select.exe"
+    function! GetImCallback(exit_code, stdout, stderr) abort
+        return a:stdout
+    endfunction
+    let g:ImSelectSetImCallback = function('GetImCallback')
+    let g:im_select_default = "1033"
 endif
