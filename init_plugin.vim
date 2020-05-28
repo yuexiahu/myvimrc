@@ -424,10 +424,6 @@ endif
 " Plug 'brglng/vim-im-select'
 "=======================================
 if HasPlug('vim-im-select')
-    let g:im_select_command = "/mnt/c/Windows/im-select.exe"
-    function! GetImCallback(exit_code, stdout, stderr) abort
-        return a:stdout
-    endfunction
-    let g:ImSelectSetImCallback = function('GetImCallback')
+    let g:im_select_command = "im-select.exe"
     let g:im_select_default = "1033"
 endif
