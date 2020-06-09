@@ -264,6 +264,8 @@ if HasPlug('nerdtree')
 
     " Open and close NERDTree
     nnoremap <C-n> :<C-u>NERDTreeToggle<CR>
+    " Open current file in nerdtree
+    nnoremap <leader>n :<C-u>NERDTreeFind<CR>
 
     let g:NERDTreeExactMatchHighlightFullName = 1
     let g:NERDTreeFileExtensionHighlightFullName = 1
@@ -271,13 +273,15 @@ if HasPlug('nerdtree')
     let g:NERDTreeHighlightFoldersFullName = 1
     let g:NERDTreePatternMatchHighlightFullName = 1
     let g:NERDTreeWinPos = "right"
+    let g:NERDTreeDirArrowExpandable = ''
+    let g:NERDTreeDirArrowCollapsible = ''
     let g:NERDTreeIndicatorMapCustom = {
-                \ "Modified"  : "✹",
-                \ "Staged"    : "✚",
-                \ "Untracked" : "✭",
+                \ "Modified"  : "*",
+                \ "Staged"    : "+",
+                \ "Untracked" : "~",
                 \ "Renamed"   : "➜",
                 \ "Unmerged"  : "═",
-                \ "Deleted"   : "✖",
+                \ "Deleted"   : "x",
                 \ "Dirty"     : "✗",
                 \ "Clean"     : "✔︎",
                 \ 'Ignored'   : '⛌',
@@ -404,6 +408,7 @@ endif
 "=======================================
 if HasPlug('a.vim')
     nnoremap <silent> <F4> :<C-u>A<CR>
+    inoremap <silent> <F4> <Esc>:<C-u>A<CR>
 endif
 
 "=======================================
@@ -424,6 +429,8 @@ endif
 " Plug 'brglng/vim-im-select'
 "=======================================
 if HasPlug('vim-im-select')
-    let g:im_select_command = "im-select.exe"
-    let g:im_select_default = "1033"
+    if has('win32') || !empty($WSLENV)
+        let g:im_select_command = "im-select.exe"
+        let g:im_select_default = "1033"
+    endif
 endif
