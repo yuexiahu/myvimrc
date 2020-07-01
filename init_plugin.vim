@@ -32,7 +32,7 @@ Plug 'richq/vim-cmake-completion'
 Plug 'yuexiahu/a.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'ryanoasis/vim-devicons' " file icons, need NerdFont
+"Plug 'ryanoasis/vim-devicons' " file icons, need NerdFont
 
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'Yggdroot/LeaderF-marks'
@@ -60,6 +60,9 @@ call plug#end()
 function! HasPlug(name)
     return has_key(g:plugs, a:name) && isdirectory($HOME . "/.vim/plugged/" . a:name)
 endfunction
+
+" config italic font
+let g:enable_italic = 0
 
 "=======================================
 " Plug 'neoclide/coc.nvim'
@@ -232,17 +235,17 @@ if has("termguicolors")
     set termguicolors
 endif
 
-let g:monokai_term_italic = 0
-let g:monokai_gui_italic = 0
-let g:onedark_hide_endofbuffer = 1
-let g:onedark_terminal_italics = 0
 set background=dark
 
 if HasPlug('onedark.vim')
-    "color onedark
+    let g:onedark_hide_endofbuffer = 1
+    let g:onedark_terminal_italics = g:enable_italic
+    " color onedark
 endif
 
 if HasPlug('vim-monokai')
+    let g:monokai_term_italic = g:enable_italic
+    let g:monokai_gui_italic = g:enable_italic
     color monokai
 endif
 
@@ -297,6 +300,7 @@ if HasPlug('LeaderF')
     let g:Lf_WindowPosition = 'popup'
     let g:Lf_PreviewInPopup = 1
     let g:Lf_ShortcutF = '<leader>f'
+    let g:Lf_ShowDevIcons = 0
     nnoremap <silent> <leader><leader>f :<C-u>Leaderf function<CR>
     nnoremap <silent> <leader><leader>F :<C-u>Leaderf function --all<CR>
     nnoremap <silent> <leader>b :<C-u>Leaderf buffer<CR>
@@ -348,6 +352,7 @@ if HasPlug('vim-airline')
     nmap <leader>8 <Plug>AirlineSelectTab8
     nmap <leader>9 <Plug>AirlineSelectTab9
     nmap g<Tab> <Plug>AirlineSelectPrevTab
+    nmap gT <Plug>AirlineSelectPrevTab
     nmap gt <Plug>AirlineSelectNextTab
     nmap <C-PageUp> <Plug>AirlineSelectPrevTab
     nmap <C-PageDown> <Plug>AirlineSelectNextTab
@@ -370,7 +375,11 @@ endif
 "=======================================
 if HasPlug('vim-lsp-cxx-highlight')
     highlight LspCxxHlSymMacro gui=bold
-    highlight LspCxxHlGroupMemberVariable gui=italic
+
+    if g:enable_italic
+        highlight LspCxxHlGroupMemberVariable gui=italic
+    endif
+
     highlight CocHighlightText gui=underline
     if colors_name == "monokai"
     elseif colors_name == "onedark"
@@ -382,8 +391,8 @@ endif
 " Plug 'voldikss/vim-translator'
 "=======================================
 if HasPlug('vim-translator')
-    let g:translator_default_engines = ['bing', 'google', 'haici', 'iciba', 'youdao']
-    let g:translator_window_type = "preview"
+    let g:translator_default_engines = ['bing', 'google', 'haici', 'youdao']
+    let g:translator_window_type = "popup"
     vmap <silent> <F8> <Plug>TranslateWV
     nmap <silent> <F8> <Plug>TranslateW
 endif
