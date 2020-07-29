@@ -438,7 +438,7 @@ endif
 " Plug 'brglng/vim-im-select'
 "=======================================
 if HasPlug('vim-im-select')
-    if has('win32') || !empty($WSLENV)
+    if has('win32') || !empty($WSL_DISTRO_NAME)
         let g:im_select_command = "im-select.exe"
         let g:im_select_default = "1033"
     endif
