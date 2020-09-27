@@ -51,7 +51,7 @@ Plug 'kana/vim-textobj-function' " f F
 
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'roxma/vim-tmux-clipboard'
-Plug 'brglng/vim-im-select'
+Plug 'yuexiahu/vim-im-select'
 "Plug 'rlue/vim-barbaric'
 
 " Initialize plugin system
@@ -278,7 +278,7 @@ if HasPlug('nerdtree')
     let g:NERDTreeWinPos = "right"
     let g:NERDTreeDirArrowExpandable = ''
     let g:NERDTreeDirArrowCollapsible = ''
-    let g:NERDTreeIndicatorMapCustom = {
+    let g:NERDTreeGitStatusIndicatorMapCustom = {
                 \ "Modified"  : "*",
                 \ "Staged"    : "+",
                 \ "Untracked" : "~",
@@ -439,7 +439,7 @@ endif
 "=======================================
 if HasPlug('vim-im-select')
     if has('win32') || !empty($WSL_DISTRO_NAME)
-        let g:im_select_command = "im-select.exe"
+        let g:im_select_command = "/mnt/c/Windows/im-select.exe"
         let g:im_select_default = "1033"
     endif
 endif
