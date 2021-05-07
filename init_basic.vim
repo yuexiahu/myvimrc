@@ -78,7 +78,7 @@ nnoremap <leader>Eb :<C-u>e ~/.vim/init_basic.vim<CR>
 nnoremap <leader>Ep :<C-u>e ~/.vim/init_plugin.vim<CR>
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 function! SudoWrite()
-    :w !sudo tee > /dev/null %
+    :w !sudo -S tee > /dev/null %
 endfunction
 command! W call SudoWrite()
 " Replace windows path to linux style

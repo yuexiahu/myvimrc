@@ -27,7 +27,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'crusoexia/vim-monokai'
 
 Plug 'vhdirk/vim-cmake'
-Plug 'richq/vim-cmake-completion'
+Plug 'peterhoeg/vim-qml'
 
 Plug 'yuexiahu/a.vim'
 Plug 'scrooloose/nerdtree'
@@ -48,7 +48,9 @@ Plug 'kana/vim-textobj-line' " l
 Plug 'kana/vim-textobj-entire' " e
 Plug 'kana/vim-textobj-indent' " i
 Plug 'kana/vim-textobj-function' " f F
+Plug 'sgur/vim-textobj-parameter' " ,
 
+Plug 'lambdalisue/suda.vim' " neovim sudo write fixed
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'roxma/vim-tmux-clipboard'
 Plug 'yuexiahu/vim-im-select'
@@ -76,6 +78,7 @@ if HasPlug('coc.nvim')
                 \'coc-pairs',
                 \'coc-snippets',
                 \'coc-clangd',
+                \'coc-cmake',
                 \'coc-python',
                 \'coc-go',
                 \'coc-rls',
@@ -106,14 +109,10 @@ if HasPlug('coc.nvim')
     " Use <c-space> to trigger completion.
     inoremap <silent><expr> <c-space> coc#refresh()
 
-    " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-    " position. Coc only does snippet and additional edit on confirm.
-    if exists('*complete_info')
-        inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-    else
-        " imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>" " vim freezon
-        imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
-    endif
+    " Make <CR> auto-select the first completion item and notify coc.nvim to
+    " format on enter, <cr> could be remapped by other vim plugin
+    inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                                 \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
     " Use `[c` and `]c` to navigate diagnostics
     nmap <silent> [c <Plug>(coc-diagnostic-prev)
@@ -170,6 +169,16 @@ if HasPlug('coc.nvim')
     nmap \ac  <Plug>(coc-codeaction)
     " Fix autofix problem of current line
     nmap \qf  <Plug>(coc-fix-current)
+
+    " Remap <C-f> and <C-b> for scroll float windows/popups.
+    if has('nvim-0.4.0') || has('patch-8.2.0750')
+        nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+        nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+        inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+        inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+        vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+        vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+    endif
 
     " Use `:Format` to format current buffer
     command! -nargs=0 Format :call CocAction('format')
@@ -416,8 +425,12 @@ endif
 " Plug 'yuexiahu/a.vim'
 "=======================================
 if HasPlug('a.vim')
+    " Qt Creator style
     nnoremap <silent> <F4> :<C-u>A<CR>
     inoremap <silent> <F4> <Esc>:<C-u>A<CR>
+    " Visual Studio style
+    nnoremap <silent> <M-o> :<C-u>A<CR>
+    inoremap <silent> <M-o> <Esc>:<C-u>A<CR>
 endif
 
 "=======================================
@@ -429,8 +442,6 @@ if HasPlug('vim-clang-format')
                 \ 'AccessModifierOffset' : '-4',
                 \ 'SpaceBeforeParens' : 'Never',
                 \ 'PointerAlignment' : 'Left'}
-    autocmd FileType c,cpp nnoremap <buffer><C-i> :<C-u>ClangFormat<CR>
-    autocmd FileType c,cpp vnoremap <buffer><C-i> :ClangFormat<CR>
 endif
 
 
@@ -441,5 +452,34 @@ if HasPlug('vim-im-select')
     if has('win32') || !empty($WSL_DISTRO_NAME)
         let g:im_select_command = "/mnt/c/Windows/im-select.exe"
         let g:im_select_default = "1033"
+    endif
+endif
+
+
+" wsl 2-way clipboard support
+" put win32yank.exe in linux PATH
+if has('win32') || !empty($WSL_DISTRO_NAME)
+    let g:clipboard = {
+          \   'name': 'win32yank-wsl',
+          \   'copy': {
+          \      '+': 'win32yank.exe -i --crlf',
+          \      '*': 'win32yank.exe -i --crlf',
+          \    },
+          \   'paste': {
+          \      '+': 'win32yank.exe -o --lf',
+          \      '*': 'win32yank.exe -o --lf',
+          \   },
+          \   'cache_enabled': 0,
+          \ }
+endif
+
+
+" Figure out the system Python for Neovim.
+if has('unix')
+    if exists("$VIRTUAL_ENV")
+        let g:python_host_prog=substitute(system("which -a python3 | head -n2 | tail -n1"), '\n', '', 'g')
+    else
+        "let g:python_host_prog=substitute(system("which python3"), '\n', '', 'g')
+        let g:python_host_prog="/usr/bin/python3"
     endif
 endif
