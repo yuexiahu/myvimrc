@@ -74,7 +74,6 @@ if HasPlug('coc.nvim')
     let g:coc_global_extensions = [
                 \'coc-json',
                 \'coc-marketplace',
-                \'coc-omni',
                 \'coc-pairs',
                 \'coc-snippets',
                 \'coc-clangd',

@@ -10,6 +10,15 @@
     "signature.target": "echo",
     "suggest.labelMaxLength": 80,
 
+    "pairs.enableCharacters": [
+        "(",
+        "[",
+        "{",
+        "'",
+        "\"",
+        "`"
+    ],
+
     "list.insertMappings": {
         "<C-j>": "normal:j",
         "<C-k>": "normal:k"
