@@ -59,6 +59,9 @@ set t_Co        =256
 set t_vb        =                   " Disable screen flash
 set mouse       =nv
 
+set foldmethod  =syntax             " fold by syntax
+set foldlevelstart=99               " never auto fold
+
 "=======================================
 " netrw
 "=======================================
