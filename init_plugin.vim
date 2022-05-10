@@ -181,6 +181,7 @@ if HasPlug('coc.nvim')
 
     " Use `:Format` to format current buffer
     command! -nargs=0 Format :call CocAction('format')
+    nnoremap gfa :<C-u>call CocAction('format')<cr>
 
     " Use `:Fold` to fold current buffer
     command! -nargs=? Fold :call CocAction('fold', <f-args>)
@@ -441,6 +442,7 @@ if HasPlug('vim-clang-format')
                 \ 'AccessModifierOffset' : '-4',
                 \ 'SpaceBeforeParens' : 'Never',
                 \ 'PointerAlignment' : 'Left'}
+    autocmd FileType c,cpp nnoremap gfa :<C-u>ClangFormat<cr>
 endif
 
 
