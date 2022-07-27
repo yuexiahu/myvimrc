@@ -29,7 +29,7 @@ Plug 'crusoexia/vim-monokai'
 Plug 'vhdirk/vim-cmake'
 Plug 'peterhoeg/vim-qml'
 
-Plug 'yuexiahu/a.vim'
+"Plug 'yuexiahu/a.vim' " use clangd
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 "Plug 'ryanoasis/vim-devicons' " file icons, need NerdFont
@@ -56,6 +56,8 @@ Plug 'roxma/vim-tmux-clipboard'
 Plug 'yuexiahu/vim-im-select'
 "Plug 'rlue/vim-barbaric'
 
+Plug 'vim-test/vim-test'
+
 " Initialize plugin system
 call plug#end()
 
@@ -81,6 +83,7 @@ if HasPlug('coc.nvim')
                 \'coc-python',
                 \'coc-go',
                 \'coc-rls',
+                \'coc-clangd',
                 \]
 
     " You will have bad experience for diagnostic messages when it's default 4000.
@@ -212,7 +215,10 @@ if HasPlug('coc.nvim')
     nnoremap <silent> \\y  :<C-u>CocList -A --normal yank<cr>
 
     nmap <silent> <F2> <Plug>(coc-definition)
-    "nnoremap <silent> <F4> :<C-u>CocCommand clangd.switchSourceHeader<CR>
+    nnoremap <silent> <F4> :<C-u>CocCommand clangd.switchSourceHeader<CR>
+    inoremap <silent> <F4> <ESC>:<C-u>CocCommand clangd.switchSourceHeader<CR>
+    nnoremap <silent> <M-o> :<C-u>CocCommand clangd.switchSourceHeader<CR>
+    inoremap <silent> <M-o> <ESC>:<C-u>CocCommand clangd.switchSourceHeader<CR>
 
 endif
 
@@ -310,6 +316,13 @@ if HasPlug('LeaderF')
     let g:Lf_PreviewInPopup = 1
     let g:Lf_ShortcutF = '<leader>f'
     let g:Lf_ShowDevIcons = 0
+    let g:Lf_UseCache = 0
+    let g:Lf_UseVersionControlTool = 0
+    let g:Lf_RgConfig = [
+        \ "--max-columns=150",
+        \ "--glob=!node_modules/*",
+        \ "--glob=!dist/*",
+        \ ]
     nnoremap <silent> <leader><leader>f :<C-u>Leaderf function<CR>
     nnoremap <silent> <leader><leader>F :<C-u>Leaderf function --all<CR>
     nnoremap <silent> <leader>b :<C-u>Leaderf buffer<CR>
@@ -454,6 +467,16 @@ if HasPlug('vim-im-select')
         let g:im_select_command = "/mnt/c/Windows/im-select.exe"
         let g:im_select_default = "1033"
     endif
+endif
+
+
+"=======================================
+" Plug 'vim-test/vim-test'
+"=======================================
+if HasPlug('vim-test')
+    let test#strategy = "basic"
+    let g:test#cpp#catch2#relToProject_build_dir = "build"
+    let g:test#cpp#catch2#suite_command = "ctest --ouput-on-failure" 
 endif
 
 

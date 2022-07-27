@@ -2,8 +2,6 @@
     "coc.preferences.currentFunctionSymbolAutoUpdate": true,
     "coc.preferences.extensionUpdateCheck": "daily",
     "coc.preferences.formatOnSaveFiletypes": ["go"],
-    "coc.source.omni.enable": true,
-    "coc.source.omni.filetypes": ["cmake"],
     "diagnostic.virtualText": true,
     "diagnostic.warningSign": "\uf071",
     "suggest.autoTrigger": "always",
@@ -30,7 +28,7 @@
 
     "languageserver": {
         "ccls": {
-            "enable": true,
+            "enable": false, //clangd is better
             "command": "ccls",
             "filetypes": ["c", "cpp", "objc", "objcpp"],
             "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
@@ -47,10 +45,11 @@
         }
     },
 
-    "clangd.enabled": false,
-    "clangd.semanticHighlighting": true,
+    "clangd.enabled": true,
+    "clangd.inlayHints.enable": false,
     "go.goplsOptions": {
         "completeUnimported": true
     },
-    "python.jediEnabled": false
+    "python.jediEnabled": false,
+    "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/14.0.3/clangd_14.0.3/bin/clangd"
 }
